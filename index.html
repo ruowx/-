@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── EASY CUSTOMIZATION ──────────────────────────────────────────
+       Edit the variables below to personalize the page.
+       ──────────────────────────────────────────────────────────────── */
+    :root {
+      /* Your logo / profile image URL — replace with your own */
+      --logo-url: url("alyas.jpg");
+
+      /* Name & tagline shown on the page */
+      --display-name: "معرض الياس";
+      --tagline: "لتجارة جميع انواع السيارات";
+
+      /* Social links ─ fill in your details */
+      --instagram-url:  "https://www.instagram.com/alyas_cars?igsh=aHoydnpobnJmMWh6";
+      --instagram-handle: "@alyas_cars";
+
+      --facebook-url:   "https://www.facebook.com/share/1Ls1h3igrg/?mibextid=wwXIfr";
+      --facebook-handle: "معرض الياس لتجارة السيارات";
+
+      --whatsapp-url:   "https://wa.me/9647806055550";   /* replace with your number */
+      --whatsapp-handle: "+9647806055550";
+
+      --website-url:    "https://maps.app.goo.gl/Lii3JLNaxuTRUQjd6?g_st=ic";
+      --website-handle: "معرض رقم 24";
+
+      --gmail-url:      "gostgost20011@gmail.com";
+      --gmail-handle:   "gostgost20011@gmail.com";
+
+      /* Accent color (hex) */
+      --accent: #c9a96e;
+
+      /* Background color */
+      --bg: #0e0e14;
+    }
+
+    /* ── RESET & BASE ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #e8e0d5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem 3rem;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND GRAIN ────────────────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,169,110,.18) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── LOGO ────────────────────────────────────────────────────── */
+    .logo-wrap {
+      position: relative;
+      margin-bottom: 1.6rem;
+      animation: fadeDown .8s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background-image: var(--logo-url);
+      background-size: cover;
+      background-position: center;
+      border: 2px solid rgba(201,169,110,.35);
+      box-shadow: 0 0 0 6px rgba(201,169,110,.07), 0 8px 40px rgba(0,0,0,.5);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 0 10px rgba(201,169,110,.12), 0 12px 50px rgba(0,0,0,.6);
+    }
+
+    /* ── NAME & TAGLINE ──────────────────────────────────────────── */
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 6vw, 2.1rem);
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-align: center;
+      animation: fadeDown .9s .1s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .tagline {
+      font-size: .72rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(232,224,213,.45);
+      margin-top: .35rem;
+      text-align: center;
+      animation: fadeDown 1s .2s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────────── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 1.6rem 0;
+      animation: scaleX .8s .35s cubic-bezier(.22,1,.36,1) both;
+      transform-origin: center;
+    }
+
+    /* ── LINKS ───────────────────────────────────────────────────── */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: .9rem 1.3rem;
+      border-radius: 3px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #e8e0d5;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .3s, background .3s, transform .2s;
+      animation: fadeUp .7s both;
+    }
+
+    /* stagger each link */
+    .link-btn:nth-child(1) { animation-delay: .4s; }
+    .link-btn:nth-child(2) { animation-delay: .5s; }
+    .link-btn:nth-child(3) { animation-delay: .6s; }
+    .link-btn:nth-child(4) { animation-delay: .7s; }
+    .link-btn:nth-child(5) { animation-delay: .8s; }
+
+    .link-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,169,110,.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform .5s ease;
+    }
+
+    .link-btn:hover::before { transform: translateX(100%); }
+
+    .link-btn:hover {
+      border-color: rgba(201,169,110,.5);
+      background: rgba(201,169,110,.06);
+      transform: translateY(-1px);
+    }
+
+    /* ── CLICK RIPPLE ────────────────────────────────────────────── */
+    .link-btn .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(201,169,110,.25);
+      pointer-events: none;
+      animation: ripple .55s linear;
+    }
+
+    /* ── ICON CIRCLE ─────────────────────────────────────────────── */
+    .icon-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      transition: background .3s, border-color .3s;
+    }
+
+    .link-btn:hover .icon-wrap {
+      background: rgba(201,169,110,.15);
+      border-color: rgba(201,169,110,.4);
+    }
+
+    .icon-wrap svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .link-text {
+      display: flex;
+      flex-direction: column;
+      gap: .1rem;
+    }
+
+    .link-platform {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .link-handle {
+      font-size: .82rem;
+      color: rgba(232,224,213,.8);
+    }
+
+    .arrow {
+      margin-left: auto;
+      font-size: .9rem;
+      opacity: .3;
+      transition: opacity .3s, transform .3s;
+    }
+
+    .link-btn:hover .arrow {
+      opacity: .8;
+      transform: translateX(3px);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2.5rem;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(232,224,213,.2);
+      animation: fadeUp .8s 1s both;
+    }
+
+    /* ── KEYFRAMES ───────────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleX {
+      from { transform: scaleX(0); opacity: 0; }
+      to   { transform: scaleX(1); opacity: 1; }
+    }
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── LOGO ── -->
+  <div class="logo-wrap">
+    <div class="logo" id="logoEl"></div>
+  </div>
+
+  <!-- ── NAME & TAGLINE ── -->
+  <h1 class="name" id="nameEl"></h1>
+  <p class="tagline" id="taglineEl"></p>
+
+  <div class="divider"></div>
+
+  <!-- ── LINKS ── -->
+  <div class="links" id="linksEl"></div>
+
+  <p class="footer">scan · tap · connect</p>
+</div>
+
+<script>
+  /* ── READ CSS VARIABLES ─────────────────────────────────────── */
+  const get = v => getComputedStyle(document.documentElement)
+    .getPropertyValue(v).trim().replace(/^"|"$/g, '');
+
+  /* ── POPULATE NAME & TAGLINE ────────────────────────────────── */
+  document.getElementById('nameEl').textContent    = get('--display-name');
+  document.getElementById('taglineEl').textContent = get('--tagline');
+  document.getElementById('logoEl').style.backgroundImage = get('--logo-url');
+
+  /* ── LINK DEFINITIONS ───────────────────────────────────────── */
+  const links = [
+    {
+      platform: 'Instagram',
+      handle:   get('--instagram-handle'),
+      href:     get('--instagram-url'),
+      icon: `<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.337 3.608 1.312.975.975 1.25 2.242 1.312 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.337 2.633-1.312 3.608-.975.975-2.242 1.25-3.608 1.312-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.337-3.608-1.312-.975-.975-1.25-2.242-1.312-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.337-2.633 1.312-3.608.975-.975 2.242-1.25 3.608-1.312 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.613.074-3.067.372-4.204 1.51C1.712 2.719 1.414 4.173 1.34 5.786 1.282 7.066 1.268 7.474 1.268 12s.014 4.934.072 4.214c.074 1.613.372 3.067 1.51 4.204 1.137 1.137 2.591 1.435 4.204 1.51C7.333 21.986 7.741 22 12 22s4.667-.014 4.947-.072c1.613-.074 3.067-.372 4.204-1.51 1.137-1.137 1.435-2.591 1.51-4.204.058-1.28.072-1.688.072-4.214s-.014-4.934-.072-4.214c-.074-1.613-.372-3.067-1.51-4.204-1.137-1.137-2.591-1.435-4.204-1.51C16.667.014 16.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>`
+    },
+    {
+      platform: 'Facebook',
+      handle:   get('--facebook-handle'),
+      href:     get('--facebook-url'),
+      icon: `<svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.252h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>`
+    },
+    {
+      platform: 'WhatsApp',
+      handle:   get('--whatsapp-handle'),
+      href:     get('--whatsapp-url'),
+      icon: `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>`
+    },
+    {
+      platform: 'Website',
+      handle:   get('--website-handle'),
+      href:     get('--website-url'),
+      icon: `<svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 21.929A10.014 10.014 0 0 1 2.07 13H5c.092 1.826.456 3.546 1.047 5.014A9.985 9.985 0 0 0 11 21.929zm0-9.929H2.07A10.015 10.015 0 0 1 11 2.071V12zm0-9.929A9.985 9.985 0 0 0 6.047 6.986 17.993 17.993 0 0 0 5 12H2.07A10.014 10.014 0 0 1 11 2.071zM21.93 11H19c-.092-1.826-.456-3.546-1.047-5.014A9.985 9.985 0 0 0 13 2.071 10.014 10.014 0 0 1 21.93 11zM13 12v-9.929A9.985 9.985 0 0 1 17.953 6.986C18.544 8.454 18.908 10.174 19 12H13zm0 9.929V13h6c-.092 1.826-.456 3.546-1.047 5.014A9.985 9.985 0 0 1 13 21.929zm-1 0A9.985 9.985 0 0 1 7.047 18.014C6.456 16.546 6.092 14.826 6 13h6v8.929z"/></svg>`
+    },
+    {
+      platform: 'Email',
+      handle:   get('--gmail-handle'),
+      href:     get('--gmail-url'),
+      icon: `<svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>`
+    }
+  ];
+
+  /* ── RENDER LINKS ───────────────────────────────────────────── */
+  const container = document.getElementById('linksEl');
+
+  links.forEach(({ platform, handle, href, icon }) => {
+    const a = document.createElement('a');
+    a.className = 'link-btn';
+    a.href = href;
+    a.target = platform === 'Email' ? '_self' : '_blank';
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = `
+      <div class="icon-wrap">${icon}</div>
+      <div class="link-text">
+        <span class="link-platform">${platform}</span>
+        <span class="link-handle">${handle}</span>
+      </div>
+      <span class="arrow">›</span>
+    `;
+
+    /* ripple on click */
+    a.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height) * 1.5;
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top  - size / 2;
+      const span = document.createElement('span');
+      span.className = 'ripple';
+      span.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`;
+      this.appendChild(span);
+      span.addEventListener('animationend', () => span.remove());
+    });
+
+    container.appendChild(a);
+  });
+</script>
+</body>
+</html>
